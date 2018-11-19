@@ -1,0 +1,23 @@
+{
+  "name": "melody-mixer",
+  "version": "1.0.0",
+  "description": "Meldoy Mixer is a series of short demos, each building on the last showing how to use Magenta's new machine learning library [MusicVAE.js](https://goo.gl/magenta/musicvae-js) to blend between melodies in real time in the browser, as well as visualize the melodies with [p5.js](https://p5js.org/), and play back the melodies using [Tone.js](https://tonejs.github.io/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notwaldorf/melody-mixer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/notwaldorf/melody-mixer/issues"
+  },
+  "homepage": "https://github.com/notwaldorf/melody-mixer#readme",
+  "dependencies": {
+    "@magenta/music": "^1.2.3",
+    "p5": "^0.7.2"
+  }
+}
