@@ -14,10 +14,12 @@
   <meta name="twitter:image" content="./data/images/melody-mixer-og2.jpeg" />
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
 
-  <script language="javascript" type="text/javascript" src="./preset-melodies.js"></script>
   <link href="/data/images/favicon-melody-mixer-small.png" rel="shortcut icon" type="image/x-icon">
   <link href="/data/images/favicon-melody-mixer.png" rel="apple-touch-icon">
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.2.3"></script>
+  <script language="javascript" type="text/javascript" src="./preset-melodies.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,7 +41,8 @@
         </p>
       </div>
 
-      <p class="device-not-supported" style="display: none">Sorry, looks like your browser or device doesn't support
+      <p class="device-not-supported" style="display: none;">
+        Sorry, looks like your browser or device doesn't support
         this experiment. Learn more about Melody Mixer
         <a target="_blank" href="https://medium.com/@torinblankensmith/how-to-blend-melodies-with-machine-learning-in-real-time-in-the-browser-8ad5b42b4d0b">here</a>.
         Or try visiting this site on a desktop computer in a browser like Chrome.</p>
@@ -69,7 +72,7 @@
       </select>
       <label for="melody-one">Melody 1</label>
     </div>
-    <button class="play-pause-button"></button>
+    <button class="play-pause-button" id="playPauseButton"></button>
     <div class="drop-down-container">
       <select name="melody-two" class="drop-down">
         <option>Melody 2</option>
