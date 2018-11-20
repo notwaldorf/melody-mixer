@@ -34,6 +34,7 @@ function go() {
     stop: () => {
       currentlyPlayingSequenceIndex++;
       if (currentlyPlayingSequenceIndex === interpolatedNoteSequences.length) {
+        currentlyPlayingSequenceIndex = 0;
         playPauseButton.classList.remove('active');
       } else {
         player.start(interpolatedNoteSequences[currentlyPlayingSequenceIndex]);
@@ -48,17 +49,16 @@ function go() {
     splashPlayButton.disabled = false;
 
     // Interpolate the currently selected melodies.
-    await interpolateMelodies();
-    p5Canvas.update();
+    interpolateMelodies().then(() => {console.log('update!'); p5Canvas.update()});
   });
-
   playPauseButton.addEventListener('click', togglePlayback);
 }
 
 async function interpolateMelodies() {
-  interpolatedNoteSequences = await mvae.interpolate([MELODY1, MELODY2], numInterpolations);
-  player.loadSamples(interpolatedNoteSequences[1]);
-  console.log('🎧 new interpolation ready');
+  mvae.interpolate([MELODY1, MELODY2], numInterpolations).then((samples) => {
+    interpolatedNoteSequences = samples;
+    console.log('🎧 new interpolation ready');
+  });
 }
 
 /*************************
@@ -87,7 +87,7 @@ function togglePlayback() {
     mm.Player.tone.Transport.pause();
     playPauseButton.classList.remove('active');
   } else {
-    currentlyPlayingSequenceIndex = 0;
+    player.loadSamples(interpolatedNoteSequences[currentlyPlayingSequenceIndex]);
     player.start(interpolatedNoteSequences[currentlyPlayingSequenceIndex]);
     playPauseButton.classList.add('active');
   }
